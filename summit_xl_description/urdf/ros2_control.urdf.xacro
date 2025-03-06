@@ -3,8 +3,11 @@
   <xacro:macro name="ros2_control">
       <gazebo>
         <plugin name="ros_control" filename="libgazebo_ros2_control.so">
-          <namespace>$(arg robot_id)</namespace>
           <parameters>$(arg config_controllers)</parameters>
+          <ros>
+            <namespace>$(arg robot_id)</namespace>
+            <remapping>~/cmd_vel_unstamped:=~/cmd_vel</remapping>
+          </ros>
         </plugin>
       </gazebo>
       <ros2_control name="robotnik_base_hw" type="system">
