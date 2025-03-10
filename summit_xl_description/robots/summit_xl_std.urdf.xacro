@@ -86,7 +86,9 @@
 	<xacro:sensor_ublox simulation="true" frame_prefix="$(arg prefix)/gps/" node_namespace="$(arg robot_ns)" topic_prefix="gps/" parent="$(arg prefix)/gps_link">
 	  <origin xyz="0.0 0 0.37" rpy="0 0 0"/>
 	</xacro:sensor_ublox>
-
+	<xacro:sensor_myahrs simulation="true" frame_prefix="$(arg prefix)/imu/" node_namespace="$(arg robot_ns)" parent="$(arg prefix)/base_link">
+		<origin xyz="0.127 -0.129 0.212" rpy="0 0 0"/>
+  </xacro:sensor_myahrs>
 
   <!-- Gazebo ros control plugins -->
   <xacro:arg name="config_controllers" default=""/>
