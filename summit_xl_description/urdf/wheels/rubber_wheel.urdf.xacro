@@ -18,8 +18,8 @@
       <parent link="${parent}"/>
       <child link="${prefix}wheel_link"/>
       <axis xyz="0 1 0" rpy="0 0 0" />
-      <limit effort="100" velocity="100"/>
-      <dynamics damping="0.05" friction="0.1"/>
+      <limit effort="1000" velocity="10"/>
+      <dynamics damping="0.05" friction="0.01"/>
     </joint>
 
     <link name="${prefix}wheel_link">
@@ -58,12 +58,11 @@
     </link>
 
     <gazebo reference="${prefix}wheel_link">
-      <mu1>0.95</mu1>
-      <mu2>0.90</mu2>
-      <kp>2.75e6</kp>
-      <kd>8.25e1</kd>
-      <fdir1>0 0 0</fdir1>
-      <maxContacts>4</maxContacts>
+      <mu1>1.0</mu1>
+      <mu2>0.5</mu2>
+      <kp>10000000</kp>
+      <kd>1.0</kd>
+      <fdir1>0 1 0</fdir1>
     </gazebo>
   </xacro:macro>
 </robot>

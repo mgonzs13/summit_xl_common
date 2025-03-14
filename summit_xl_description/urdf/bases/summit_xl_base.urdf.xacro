@@ -38,7 +38,8 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0 " />
         <geometry>
-          <mesh filename="file://$(find summit_xl_description)/meshes/bases/summit_xl_chassis_collision.dae"/>
+          <!-- <mesh filename="file://$(find summit_xl_description)/meshes/bases/summit_xl_chassis_collision.dae"/> -->
+          <box size="0.01 0.01 0.01" />
         </geometry>
       </collision>
     </link>
