@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="structure_robosense" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="structure_robosense" params="prefix parent *origin">
+        <joint name="${prefix}structure_robosense_joint" type="fixed">
+            <axis xyz="0 1 0"/>
+            <xacro:insert_block name="origin"/>
+            <parent link="${parent}"/>
+            <child link="${prefix}structure_robosense"/>
+        </joint>
+        <link name="${prefix}structure_robosense">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.05" length="0.09138"/>
+                </geometry>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="0.05" length="0.09138"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="${prefix}structure_robosense">
+            <material>Gazebo/Black</material>
+            <gravity>true</gravity>
+        </gazebo>
+    </xacro:macro>
+</robot>
