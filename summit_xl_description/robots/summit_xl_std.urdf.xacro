@@ -77,9 +77,9 @@
   <xacro:sensor_robosense_helios_16p simulation="true" gpu="true" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)/front_laser_" parent="$(arg prefix)/base_link">
       <origin xyz="0.0 0.0 0.275" rpy="0 0 0"/>
   </xacro:sensor_robosense_helios_16p>
-  <xacro:sensor_stereolabs_zed2 simulation="true" node_namespace="$(arg robot_ns)" node_name="zed2" frame_prefix="$(arg prefix)/front_camera_" parent="$(arg prefix)/base_link">
+  <xacro:sensor_stereolabs_zed2i_low_res simulation="true" node_namespace="$(arg robot_ns)" node_name="zed2" frame_prefix="$(arg prefix)/front_camera_" parent="$(arg prefix)/base_link">
       <origin xyz="0.324 0.012 0.172" rpy="0 0 0"/>
-  </xacro:sensor_stereolabs_zed2>
+  </xacro:sensor_stereolabs_zed2i_low_res>
   <xacro:structure_mastil_gps prefix="$(arg prefix)/gps" parent="$(arg prefix)/base_link">
     <origin xyz="-0.24 0.095 0.275" rpy="0 0 0"/>
   </xacro:structure_mastil_gps>
