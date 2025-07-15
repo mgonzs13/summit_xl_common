@@ -12,6 +12,7 @@
   <xacro:include filename="$(find summit_xl_description)/urdf/structures/structure_teltonika.urdf.xacro"/>
   <!-- Import all available sensors -->
   <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro"/>
+  <xacro:include filename="$(find asus_xtion_description)/urdf/asus_xtion.urdf.xacro"/>
   <!-- ***************** -->
   <!-- Global parameters -->
   <!-- ***************** -->
@@ -74,6 +75,28 @@
   <xacro:sensor_stereolabs_zed2i_low_res simulation="true" node_namespace="$(arg robot_ns)/zed2" node_name="zed_node" frame_prefix="$(arg prefix)/front_camera_" parent="$(arg prefix)/base_link">
     <origin xyz="0.324 0.012 0.172" rpy="0 0 0"/>
   </xacro:sensor_stereolabs_zed2i_low_res>
+  <link name="$(arg prefix)/camera_mast_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.025 0.025 1.2"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.025 0.025 1.2"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="$(arg prefix)/camera_mast_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.26 0.0 0.875"/>
+    <parent link="$(arg prefix)/base_link" />
+    <child link="$(arg prefix)/camera_mast_link" />
+  </joint>
+  <xacro:sensor_asus_xtion parent="$(arg prefix)/camera_mast_link" name="camera">
+    <origin xyz="0.045 0.0 0.57" rpy="0 ${pi/5} 0"/>
+  </xacro:sensor_asus_xtion>
   <!-- GPS -->
   <xacro:structure_mastil_gps prefix="$(arg prefix)/gps" parent="$(arg prefix)/base_link">
     <origin xyz="-0.24824 0.095 0.275" rpy="0 0 0"/>
