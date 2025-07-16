@@ -79,23 +79,23 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <box size="0.03 0.03 1.2"/>
+        <box size="0.02 0.02 0.5"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <box size="0.03 0.03 1.2"/>
+        <box size="0.02 0.02 0.5"/>
       </geometry>
     </collision>
   </link>
   <joint name="$(arg prefix)/camera_mast_link_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.26 0.0 0.875"/>
+    <origin rpy="0 0 0" xyz="0.025 0.0 0.525"/>
     <parent link="$(arg prefix)/base_link" />
     <child link="$(arg prefix)/camera_mast_link" />
   </joint>
   <xacro:sensor_asus_xtion parent="$(arg prefix)/camera_mast_link" name="camera">
-    <origin xyz="0.045 0.0 0.57" rpy="0 ${pi/5} 0"/>
+    <origin xyz="0.04 0.0 0.243" rpy="0 ${pi/5} 0"/>
   </xacro:sensor_asus_xtion>
   <!-- GPS -->
   <xacro:structure_mastil_gps prefix="$(arg prefix)/gps" parent="$(arg prefix)/base_link">
